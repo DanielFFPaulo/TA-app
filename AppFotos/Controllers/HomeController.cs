@@ -1,31 +1,28 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using AppFotos.Models;
 
-namespace AppFotos.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
-public class HomeController : Controller
-{
-    private readonly ILogger<HomeController> _logger;
+using System.Diagnostics;
 
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
+namespace AppFotos.Controllers {
+   public class HomeController: Controller {
+      private readonly ILogger<HomeController> _logger;
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+      public HomeController(ILogger<HomeController> logger) {
+         _logger = logger;
+      }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+      public IActionResult Index() {
+         return View();
+      }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+      public IActionResult Privacy() {
+         return View();
+      }
+
+      [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+      public IActionResult Error() {
+         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+      }
+   }
 }

@@ -1,13 +1,32 @@
-﻿namespace AppFotos.Models
-{
-    /// <summary>
-    /// Categorias a que as fotografias pode ser associadas
-    /// </summary>
-    public class Categorias
-    {
-        public int Id { get; set; }
-        public string Categoria { get; set; }
+﻿using System.ComponentModel.DataAnnotations;
 
-        public ICollection<Fotografias> ListaFotografias { get; set; }
-    }
+namespace AppFotos.Models {
+
+   /// <summary>
+   /// categorias a que as fotografias podem ser associadas
+   /// </summary>
+   public class Categorias {
+
+      /// <summary>
+      /// Identificador da categoria
+      /// </summary>
+      [Key]
+      public int Id { get; set; }
+
+      /// <summary>
+      /// Nome da categoria que será associada às fotografias
+      /// </summary>
+      public string Categoria { get; set; }
+
+      /* *************************
+      * Definção dos relacionamentos
+      * ************************** 
+      */
+
+      /// <summary>
+      /// Lista das fotografias associadas a uma categoria
+      /// </summary>
+      public ICollection<Fotografias> ListaFotografias { get; set; }
+
+   }
 }

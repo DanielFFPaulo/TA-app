@@ -1,41 +1,71 @@
-﻿namespace AppFotos.Models
-{
-    /// <summary>
-    /// utilizadores nao anonimos da aplicação
-    /// </summary>
-    public class Utilizadores
-    {
-        /// <summary>
-        /// identificador unico da conta do utilizador
-        /// </summary>
-        public int ID { get; set; }
-        /// <summary>
-        /// nome do utilizador
-        /// </summary>
-        public string nome { get; set; }
-        /// <summary>
-        /// morada do utilizador
-        /// </summary>
-        public string morada { get; set; }
-        /// <summary>
-        /// casa do utilizador
-        /// </summary>
-        public string MyProperty { get; set; }
-        /// <summary>
-        /// codigo postal do utilizador
-        /// </summary>
-        public string CodPostal { get; set; }
-        /// <summary>
-        /// pais de residencia do utilizador
-        /// </summary>
-        public string Pais { get; set; }
-        /// <summary>
-        /// numero de identificacao fiscal do utilizador
-        /// </summary>
-        public string NIF { get; set; }
-        /// <summary>
-        /// numero de telemovel
-        /// </summary>
-        public string Telemovel { get; set; }
-    }
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AppFotos.Models {
+
+   /// <summary>
+   /// utilizadores não anónimos da aplicação
+   /// </summary>
+   public class Utilizadores {
+
+      /// <summary>
+      /// Identificador do utilizador
+      /// </summary>
+      [Key]
+      public int Id { get; set; }
+
+      /// <summary>
+      /// Nome do utilizador
+      /// </summary>
+      public string Nome { get; set; }
+
+      /// <summary>
+      /// Morada do utilizador
+      /// </summary>
+      public string Morada { get; set; }
+
+      /// <summary>
+      /// Código Postal da  morada do utilizador
+      /// </summary>
+      public string CodPostal { get; set; }
+
+      /// <summary>
+      /// País da morada do utilizador
+      /// </summary>
+      public string Pais { get; set; }
+
+      /// <summary>
+      /// Número de identificação fiscal do Utilizador
+      /// </summary>
+      public string NIF { get; set; }
+
+      /// <summary>
+      /// número de telemóvel do utilizador
+      /// </summary>
+      public string Telemovel { get; set; }
+
+
+      /* *************************
+     * Definção dos relacionamentos
+     * ************************** 
+     */
+
+      /// <summary>
+      /// Lista das fotografias que são propriedade do 
+      /// utilizador
+      /// </summary>
+      public ICollection<Fotografias> ListaFotos { get; set; }
+
+      /// <summary>
+      /// Lista dos 'gostos' de fotografias do utilizador
+      /// </summary>
+      public ICollection<Gostos> ListaGostos { get; set; }
+
+      /// <summary>
+      /// Lista das fotografias compradas pelo utilizador
+      /// </summary>
+      public ICollection<Compras> ListaCompras { get; set; }
+
+
+
+   }
 }
