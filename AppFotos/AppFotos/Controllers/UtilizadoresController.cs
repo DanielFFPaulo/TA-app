@@ -86,7 +86,7 @@ namespace AppFotos.Controllers
             {
                 return NotFound();
             }
-            return View(utilizador);
+            return View(utilizador); 
         }
 
         // POST: Utilizadores/Edit/5
